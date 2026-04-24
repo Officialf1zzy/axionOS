@@ -19,6 +19,7 @@ void kernel_main(void)
 
     printc("Kernel booted!\n");
     printc("VGA driver is working.\n\n");
+    __asm__ volatile ("sti");
 
     //color output
     vga_set_color(VGA_COLOR_GREEN, VGA_COLOR_BLACK);
