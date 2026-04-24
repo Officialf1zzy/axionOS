@@ -1,10 +1,5 @@
-#include "..\drivers\vga.h"
-#include "..\drivers\keyboard.h"
-
-void _start() 
-{
-    kernel_main();
-}
+#include "../drivers/vga.h"
+#include "../drivers/keyboard.h"
 
 void kernel_main(void)
 {
@@ -53,4 +48,9 @@ void kernel_main(void)
     for (;;) {
         __asm__ volatile ("hlt");
     }
+}
+
+void _start() 
+{
+    kernel_main();
 }
