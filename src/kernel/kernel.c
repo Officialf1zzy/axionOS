@@ -1,5 +1,10 @@
-#include "\src\drivers\vga.h"
-#include "\src\drivers\keyboard.h"
+#include "..\drivers\vga.h"
+#include "..\drivers\keyboard.h"
+
+void _start() 
+{
+    kernel_main();
+}
 
 void kernel_main(void)
 {
