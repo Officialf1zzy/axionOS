@@ -1,0 +1,38 @@
+[vilhelm@vilhelm src]$ make clean
+  Cleaning...
+  Done.
+[vilhelm@vilhelm src]$ make
+  CC  kernel/kernel.c
+  CC  drivers/keyboard.c
+drivers/keyboard.c: In function ‘keyboard_handler’:
+drivers/keyboard.c:59:5: error: implicit declaration of function ‘outb’ [-Wimplicit-function-declaration]
+   59 |     outb(0x20, 0x20);
+      |     ^~~~
+make: *** [makefile:43: drivers/keyboard.o] Error 1
+[vilhelm@vilhelm src]$ make clean
+  Cleaning...
+  Done.
+[vilhelm@vilhelm src]$ make
+  CC  kernel/kernel.c
+  CC  drivers/keyboard.c
+  CC  drivers/vga.c
+  LD  build/iso/boot/kernel.bin
+/usr/bin/ld: drivers/keyboard.o: in function `keyboard_handler':
+keyboard.c:(.text+0x18): undefined reference to `inb'
+/usr/bin/ld: drivers/keyboard.o: in function `keyboard_init':
+keyboard.c:(.text+0x112): undefined reference to `irq_install_handler'
+/usr/bin/ld: drivers/vga.o: in function `printc_dec':
+vga.c:(.text+0x6f2): undefined reference to `__umoddi3'
+/usr/bin/ld: vga.c:(.text+0x719): undefined reference to `__udivdi3'
+make: *** [makefile:49: build/iso/boot/kernel.bin] Error 1
+[vilhelm@vilhelm src]$ make
+  LD  build/iso/boot/kernel.bin
+/usr/bin/ld: drivers/keyboard.o: in function `keyboard_handler':
+keyboard.c:(.text+0x18): undefined reference to `inb'
+/usr/bin/ld: drivers/keyboard.o: in function `keyboard_init':
+keyboard.c:(.text+0x112): undefined reference to `irq_install_handler'
+/usr/bin/ld: drivers/vga.o: in function `printc_dec':
+vga.c:(.text+0x6f2): undefined reference to `__umoddi3'
+/usr/bin/ld: vga.c:(.text+0x719): undefined reference to `__udivdi3'
+make: *** [makefile:49: build/iso/boot/kernel.bin] Error 1
+[vilhelm@vilhelm src]$
