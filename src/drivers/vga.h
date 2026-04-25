@@ -3,11 +3,6 @@
  *
  * Targets the VGA text-mode framebuffer at physical address 0xB8000.
  * Works after UEFI hands control to the kernel (ExitBootServices).
- *
- * Usage in your kernel:
- *   #include "vga.h"
- *   vga_init();
- *   printc("Hello, kernel world!\n");
  */
 
 #ifndef VGA_H
