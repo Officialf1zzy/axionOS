@@ -66,7 +66,7 @@ void kernel_main(void)
     //reset colors
     vga_set_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
 
-    //halt
+    //halt cpu
     for (;;) {
         __asm__ volatile ("hlt");
     }
