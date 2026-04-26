@@ -27,9 +27,12 @@ void kernel_main(void)
     idt_init();
     pic_remap();
     keyboard_init();
+	pic_clear_mask(0);
+    pic_clear_mask(1);
+	__asm__ volatile ("sti");
 
-    printc("\n \n \n \n \n \n \n");
-	printc("booting axoinOS");
+    printc("\n \n \n \n \n \n \n \n \n \n \n");
+	printc("               booting axoinOS");
 	timer_sleep(8000);
 
     //color output
